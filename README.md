@@ -80,7 +80,7 @@ npm install
 #### Start the Backend Server
 ```sh
 cd backend
-node server.js
+npm start
 ```
 Backend should now be running at **http://localhost:3000/**.  
 
@@ -98,9 +98,7 @@ Frontend should now be available at **http://localhost:4200/**.
 ```
 ShopBooksHere/
 │-- backend/        # Express.js API (Node.js backend)
-│   ├── models/     # Database models
-│   ├── routes/     # API routes
-│   ├── server.js   # Main backend entry file
+│   ├── app.js      # Main backend entry file
 │-- frontend/       # Angular frontend
 │   ├── src/
 │   ├── angular.json
@@ -127,12 +125,6 @@ ShopBooksHere/
    ```
 5. Open a **Pull Request** on GitHub.  
 
----
-
-## License  
-This project is open-source and available under the [MIT License](LICENSE).  
-
----
 
 ### Need Help?  
 If you have any issues setting up or running the project, feel free to open an **issue** on GitHub!  
