@@ -62,13 +62,16 @@ npm install
 
 ---
 
-### Database Setup (MySQL with XAMPP)  
-1. **Start XAMPP**, enable **Apache** & **MySQL**.  
-2. Open **phpMyAdmin** (`http://localhost/phpmyadmin`).  
-3. Create a new database:  
-   - Name: `shopbookshere_db`  
-   - Collation: `utf8_general_ci`  
-4. Import the SQL file (if available) or create necessary tables manually.  
+### Database Setup (MySQL with XAMPP)
+
+#### Import the Database
+1. Start **XAMPP** and enable **Apache & MySQL**.
+2. Open [phpMyAdmin](http://localhost/phpmyadmin/).
+3. Click **New**, enter database name as `bookshop` (or the correct name), and click **Create**.
+4. Click on the **Import** tab.
+5. Click **Choose File** and select `database/bookshop.sql`.
+6. Click **Go** to import the database.
+7. Database setup is complete!
 
 ---
 
