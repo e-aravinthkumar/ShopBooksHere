@@ -1,0 +1,109 @@
+<div class="py-3">
+  <div class="flex items-center gap-2 flex-wrap bg-white   px-4 py-4 rounded-md">
+    <a class="inline" (click)="goBack()">
+      <img class="w-5 h-5" src="../../../../assets/svgs/navigation/back-arrow.svg" alt="back-arrow">
+    </a>
+    <h1 class="md:text-xl text-lg font-semibold">{{book?.name}}</h1>
+  </div>
+</div>
+<div *ngIf="!book; else content">
+  No details
+</div>
+<ng-template #content>
+  <div class="grid grid-cols-1 md:grid-cols-8 gap-4 md:mt-2 pb-4">
+    <div class="md:col-span-3 md:row-span-2">
+      <div class="card w-full flex justify-center">
+        <div class="md:w-80 md:h-96 w-64 h-80 flex items-center justify-center">
+          <swiper [pagination]="{clickable : true}" [config]="config">
+            <ng-template *ngFor="let imageUrl of book?.imageUrls" swiperSlide>
+              <img class="md:w-80 md:h-80 w-64 h-64 object-contain mt-2" [src]="imageUrl" [alt]="book?.name">
+            </ng-template>
+          </swiper>
+        </div>
+      </div>
+    </div>
+    <div class="md:col-span-5 md:row-span-2 col-start-1 md:col-start-4 flex flex-col gap-y-3">
+      <div class="card">
+        <p class="font-semibold text-sm">by <span class="text-base text-blue-500">{{book?.author}}</span> (Author)</p>
+        <p class="font-semibold text-lg">{{book?.price | currency: 'INR'}}/-</p>
+        <div class="flex gap-3 py-2">
+          <button class="px-4 py-2 bg-blue-500 text-white rounded">Buy</button>
+          <button class="px-4 py-2 bg-gray-300 rounded">Add To Cart</button>
+        </div>
+      </div>
+      <div class="card">
+        <h1 class="md:text-2xl text-lg font-bold mb-4 ">Book Details</h1>
+        <table class="w-full rounded-lg overflow-hidden  text-base md:text-lg p-2">
+          <tbody>
+            <tr class="bg-gray-100">
+              <td class="font-semibold px-2 py-2">
+                <span class="flex items-center">
+                  <img src="../../../../assets/svgs/book-details/author.svg" class="w-6 h-6 md:w-8 md:h-8 mr-2"
+                    alt="Author">
+                  <span class="text-base md:text-lg">Author</span>
+                </span>
+              </td>
+              <td class="font-normal py-2">{{book?.author}}</td>
+            </tr>
+            <tr class="bg-gray-200">
+              <td class="font-semibold px-2 py-2">
+                <span class="flex items-center">
+                  <img src="../../../../assets/svgs/book-details/publisher.svg" class="w-6 h-6 md:w-8 md:h-8 mr-2"
+                    alt="Publisher">
+                  <span class="text-base md:text-lg">Publisher</span>
+                </span>
+              </td>
+              <td class="font-normal py-2">{{book?.publisher}}</td>
+            </tr>
+            <tr class="bg-gray-100">
+              <td class="font-semibold px-2 py-2">
+                <span class="flex items-center">
+                  <img src="../../../../assets/svgs/book-details/total-pages.svg" class="w-6 h-6 md:w-8 md:h-8 mr-2"
+                    alt="Pages">
+                  <span class="text-base md:text-lg">Pages</span>
+                </span>
+              </td>
+              <td class="font-normal py-2">{{book?.pages}}</td>
+            </tr>
+            <tr class="bg-gray-200">
+              <td class="font-semibold px-2 py-2">
+                <span class="flex items-center">
+                  <img src="../../../../assets/svgs/book-details/category.svg" class="w-6 h-6 md:w-8 md:h-8 mr-2"
+                    alt="Category">
+                  <span class="text-base md:text-lg">Category</span>
+                </span>
+              </td>
+              <td class="font-normal py-2">{{book?.category}}</td>
+            </tr>
+            <tr class="bg-gray-100">
+              <td class="font-semibold px-2 py-2">
+                <span class="flex items-center">
+                  <img src="../../../../assets/svgs/book-details/language.svg" class="w-6 h-6 md:w-8 md:h-8 mr-2"
+                    alt="Language">
+                  <span class="text-base md:text-lg">Language</span>
+                </span>
+              </td>
+              <td class="font-normal py-2">{{book?.language}}</td>
+            </tr>
+            <tr class="bg-gray-200">
+              <td class="font-semibold px-2 py-2">
+                <span class="flex items-center">
+                  <img src="../../../../assets/svgs/book-details/price.svg" class="w-6 h-6 md:w-8 md:h-8 mr-2"
+                    alt="Price">
+                  <span class="text-base md:text-lg">Price</span>
+                </span>
+              </td>
+              <td class="font-normal py-2">{{book?.price | currency: 'INR'}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="col-span-1 md:col-span-8">
+      <div class="card">
+        <h1 class="md:text-2xl text-lg font-bold ">Book Description</h1>
+        <p class="text-base md:text-lg p-2">{{book?.description}}</p>
+      </div>
+    </div>
+  </div>
+</ng-template>

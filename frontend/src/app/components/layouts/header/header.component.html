@@ -1,0 +1,63 @@
+<!-- <header class="text-white bg-gradient-to-tr from-red-400 to-orange-400 ">
+    <div class="container mx-auto flex justify-between items-center p-4">
+        <div>
+            <h1 class="  font-bold text-xl ">ShopBookHere</h1>
+        </div>
+        <nav>
+            <ul class="flex gap-4 font-semibold">
+                <li><a routerLink="/">Home</a></li>
+                <li><a routerLink="books-list">All Books</a></li>
+                <li><a routerLink=""></a></li>
+            </ul>
+        </nav>
+    </div>
+</header> -->
+
+<header class="sticky top-0 z-50">
+    <nav class="bg-blue-500 text-white">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="flex items-center justify-between h-16"> 
+            <div class="flex gap-x-1 items-center">
+              <div class="md:hidden">
+                <button type="button" (click)="toggleMobileMenu()" class="bg-blue-500 inline-flex items-center justify-center p-2 rounded-md text-white hover:text-gray-200 ">
+                  <span class="sr-only">Open main menu</span>
+                  <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                  </svg>
+                </button>
+              </div>
+              <div class="flex-shrink-0 flex items-center">
+                <img class="h-10 w-10 mb-1" src="../../../../assets/book-shop-logo.svg">
+                <h1 class="text-xl font-semibold ">ShopBookHere</h1>
+              </div>
+            </div>
+            <div class="hidden md:block">
+                <ul class="flex gap-4 ">
+                    <li><a routerLink="/">Home</a></li>
+                    <li><a routerLink="books-list">All Books</a></li>
+                    <li><a routerLink=""></a></li>
+                </ul>
+            </div>
+           
+          </div>
+        </div>
+      </nav>
+      
+    <aside [hidden]="!isMobileMenuOpen" class="md:hidden   w-full fixed h-full z-50">
+       <div class="flex  w-full h-full">
+        <div class=" animate-faster z-10 p-4 w-[65%] bg-white shadow-lg h-full" 
+        [ngClass]="{'animate-slideInLeft': isMobileMenuOpen }"
+        >
+            <ul class="font-semibold bg-slate-300">
+                <li><a routerLink="/">Home</a></li>
+                <li><a routerLink="books-list">All Books</a></li>
+                <li><a routerLink=""></a></li>
+            </ul>
+        </div>
+        <div (click)="toggleMobileMenu()" class="w-full h-screen z-0 fixed bg-black/40 backdrop-blur-sm">
+            &nbsp;
+        </div>
+       </div>
+    </aside>
+      
+</header>

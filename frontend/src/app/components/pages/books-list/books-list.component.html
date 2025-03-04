@@ -1,0 +1,32 @@
+<div class="sticky top-16 bg-slate-100 ">
+  <a class="px-4 py-4 font-bold text-xl inline-flex gap-2 items-center" (click)="goBack()">
+    <span>
+      <img src="../../../../assets/svgs/navigation/back-arrow.svg" alt="back-arrow">
+    </span>
+    <span>
+      {{
+      category? category+' Books' :'All Books'
+      }}
+    </span>
+  </a>
+  <hr class="border-t-2 border-slate-200 mx-6">
+</div>
+
+<div *ngFor="let book of books" routerLink="/book-details/{{book.id}}"
+  class="bg-white rounded-lg shadow-md p-4 mx-5 flex">
+  <div class="md:w-56 md:h-56 w-44 h-44 border-2 border-slate-200 rounded-lg bg-slate-100 px-2 py-1">
+    <img class="w-full h-full object-contain" [src]="book.imageUrls[0]" [alt]="book.name">
+  </div>
+  <div class="w-full pl-4">
+    <h2 class="lg:text-xl md:text-lg text-md font-bold line-clamp-3">{{
+      book.name }}</h2>
+    <p class="text-gray-600">by <span class="text-blue-400">{{ book.author }}</span></p>
+    <p class="flex gap-2 items-center font-bold mt-2">
+      <span class="text-red-700 ">{{ book.price | currency:'INR'}}</span>
+      <span class="text-gray-400">&#9679;</span>
+      <span class="flex  text-orange-400">
+        {{book.language}}
+      </span>
+    </p>
+  </div>
+</div>

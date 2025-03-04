@@ -1,0 +1,24 @@
+<div class="px-2 pb-4">
+    <a class="p-4 font-bold text-xl flex justify-between" routerLink="books-list/{{bookCategory}}">
+        <span>{{bookCategory}} Books</span>
+        <span>
+            <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" >
+                <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75" />
+              </svg>              
+        </span>
+    </a>
+    <swiper class=" mx-5 md:h-[330px] h-[18rem]" [config]="config">
+        <h1>{{bookCategory}}</h1>
+        <ng-template class="relative z-20" *ngFor="let book of books"
+            class="h-fit w-fit " swiperSlide>
+            <div routerLink="/book-details/{{book.id}}" class="rounded-xl border-2  shadow-md bg-white overflow-hidden  p-2">
+                <img class="md:w-48 md:h-56 w-32 h-44 rounded-lg border-2 border-gray-300" [src]="book.imageUrls[0]" [alt]="book.name">
+                <div class="md:mx-3 md:mt-2 mx-2 mt-1 md:text-sm text-xs font-semibold">
+                    <p class=" line-clamp-2  md:w-40 w-28">{{book.name}}</p>
+                    <p class="mt-2 text-orange-400">{{book.price | currency:'INR'}}</p>
+                </div>
+            </div>
+        </ng-template>
+    </swiper>
+</div>
+<hr class="mx-10 border-t-2 border-gray-300/50">
